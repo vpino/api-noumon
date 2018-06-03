@@ -9,8 +9,25 @@ const port = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.get('/hi/:name', (req, res) => {
-	res.send({ message: `Hi ${req.params.name}`})
+app.get('/api/product', (req, res) => {
+	res.status(200).send({ products: []})
+})
+
+app.get('/api/product/:productId', (req, res) => {
+
+})
+
+app.post('/api/product', (req, res) => {
+	console.log(req.body)
+	res.status(200).send({ message: `Product received successfully`})
+})
+
+app.put('/api/product/:productId', (req, res) => {
+
+})
+
+app.delete('/api/product/:productId', (req, res) => {
+
 })
 
 app.listen(port, () => {
