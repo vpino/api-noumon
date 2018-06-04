@@ -2,16 +2,16 @@
 
 const mongoose = require('mongoose')
 const app = require('./app')
-const port = process.env.PORT || 3000
+const config = require('./config')
 
-mongoose.connect('mongodb://localhost:27017/shop', (err, res) => {
+mongoose.connect(config.db, (err, res) => {
   if (err) {
     return console.log(`Error to connect to the database: ${err}`)
   }
   console.log('Conection established to the database...')
     
-  app.listen(port, () => {
-    console.log(`API REST MONGOJS EXPRESS ${port}`)
+  app.listen(config.port, () => {
+    console.log(`API REST MONGOJS EXPRESS ${config.port}`)
   })
 })
 
