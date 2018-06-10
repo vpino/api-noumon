@@ -1,6 +1,6 @@
 'use strict'
 
-const services = reuire('../services')
+const services = require('../services')
 
 function isAuth (req, res, next) {
   if (!req.headers.authorization) {
@@ -15,7 +15,7 @@ function isAuth (req, res, next) {
       next()
     })
     .catch(response => {
-      res.status(response.status)
+      return res.status(response.status).send({ message: response.message })
     })
 }
 
