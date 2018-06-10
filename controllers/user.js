@@ -31,9 +31,9 @@ const signIn = (req, res) => {
 
       req.user = user
       
-      res.stauts(200).send({
+      res.status(200).send({
         message: 'Login successful',
-        tokem: service.createToken(user)
+        token: service.createToken(user)
       })
 
     });
